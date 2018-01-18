@@ -1,0 +1,13 @@
+#main{
+  text-align: center;
+}
+
+.field{
+  font-family: monospace;
+  width: 40vw;
+  height: 60vw;
+  border: 2px solid black;
+  text-align: left;
+
+}
+

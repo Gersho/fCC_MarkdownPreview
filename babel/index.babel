@@ -1,0 +1,128 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+  
+marked.setOptions({
+  sanitize: true
+});
+  
+ class Main extends React.Component{
+   constructor(props){
+     super(props);
+     const demo = "Heading\r=======\rSub-heading\r-----------\r### Another deeper heading\rParagraphs are separatedby a blank line.\r\rLeave 2 spaces at the end of a line to do a  \rline break\r\rText attributes *italic*, **bold**,`monospace`, ~~strikethrough~~ .\r\rShopping list:\r* apples\r* oranges\r* pears\r\rNumbered list:\r1. apples\r2. oranges\r3. pears\r\rThe rain---not the reign---in Spain.";
+     this.state={demo: demo,input: demo, output: marked(demo)};
+   }
+   
+   render(){
+     return(
+     <div id="main" className="container">
+         <div>
+           <h4>Markdown Previewer</h4>
+           <button onClick={() => this.setState({input: "", output: marked("")})}>Clear</button>
+           <button onClick={() => this.setState({input: this.state.demo, output: marked(this.state.demo)})}>Demo</button>
+         </div>
+         <div className="row">
+           <div className="col">
+             <div>Input</div>
+             <textarea onChange={(event) => this.setState({input: event.target.value, output: marked(event.target.value) })} value={this.state.input} className="field"></textarea>
+           </div>
+           <div className="col">
+             <div>Output</div>
+             <div dangerouslySetInnerHTML={{ __html: this.state.output }} className="field"></div>
+           </div>
+         </div>
+       </div>
+     );
+   }
+   
+   
+   
+ } //end Main class
+
+// <div dangerouslySetInnerHTML={{ __html: this.state.description }} />
+  
+  ReactDOM.render(<Main />, document.getElementById("react-anchor"));
+
+  
+  
+ }); //fin DOMContentLoaded
+
+
+/*
+//////////////////////////////////
+import React from 'react';
+
+export default ({value, method}) => {
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => method(e)}
+    />
+  )
+};
+
+
+/////////////////////////////////////
+
+
+import React from 'react';
+import { render } from 'react-dom';
+import Input from './Input';
+
+const styles = {
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'initial value',
+    };
+    this.onChangeValue = this.onChangeValue.bind(this);
+  }
+  
+  onChangeValue(newVal) {
+    this.setState({ value: newVal });
+  }
+  
+  render() {
+    return (
+    <div style={styles}>
+      <Input 
+        value={this.state.value} 
+        method={this.onChangeValue}
+      />
+    </div>
+    );
+  }
+}
+
+
+render(<App />, document.getElementById('root'));
+
+
+
+
+/////////////////////////////////////
+
+
+ defaultValue={defaultContent}
+
+
+
+
+//GlobalEventHandlers.onchange
+  
+  //GlobalEventHandlers.oninput
+marked('# Marked in browser\n\nRendered by **marked**.');
+
+
+
+
+  var demo = "Heading\r=======\rSub-heading\r-----------\r### Another deeper heading\rParagraphs are separatedby a blank line.\r\rLeave 2 spaces at the end of a line to do a  \rline break\r\rText attributes *italic*, **bold**,`monospace`, ~~strikethrough~~ .\r\rShopping list:\r* apples\r* oranges\r* pears\r\rNumbered list:\r1. apples\r2. oranges\r3. pears\r\rThe rain---not the reign---in Spain."
+
+
+
+
+*/
